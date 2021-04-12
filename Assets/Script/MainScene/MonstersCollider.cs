@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobsCollider : MonoBehaviour
+public class MonstersCollider : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(collision.gameObject);
 
-        GameObject.Find("MobsGenerator").GetComponent<MobsGenerator>().MakeMobs(new Vector3(549, 443, 0));
+        GameObject.Find("MonstersGenerator").GetComponent<MonstersGenerator>().MakeMobs(new Vector3(549, 443, 0));
     }
 }

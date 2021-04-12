@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobsMove : MonoBehaviour
+public class MonstersMove : MonoBehaviour
 {
     // Update is called once per frame
     void Update()

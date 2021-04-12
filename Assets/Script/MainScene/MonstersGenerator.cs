@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobsGenerator : MonoBehaviour
+public class MonstersGenerator : MonoBehaviour
 {
-    public GameObject[] Mobs;
+    public GameObject[] Monsters;
     public GameObject Parent;
 
-    private int MobGenerateCount = 0;
+    private int MonstersGenerateCount = 0;
 
     public void MakeMobs(Vector3 Position)
     {
-        GameObject obj = Instantiate(Mobs[MobGenerateCount], Position, Quaternion.identity,GameObject.Find("Mobs").transform);
+        GameObject obj = Instantiate(Monsters[MonstersGenerateCount], Position, Quaternion.identity,GameObject.Find("Monsters").transform);
 
-        MobGenerateCount++;
+        MonstersGenerateCount++;
 
-        if (MobGenerateCount == 9)
+        if (MonstersGenerateCount == 9)
         {
-            MobGenerateCount = 0;
+            MonstersGenerateCount = 0;
         }
     }
 

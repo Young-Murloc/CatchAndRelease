@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 518483386}
   - component: {fileID: 518483387}
   m_Layer: 5
-  m_Name: Mobs
+  m_Name: Monsters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1930167425}
-        m_MethodName: CollectionSceneChange
+        m_MethodName: monsterListSceneChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1379,7 +1379,7 @@ GameObject:
   - component: {fileID: 2075489147}
   - component: {fileID: 2075489146}
   m_Layer: 0
-  m_Name: MobsGenerator
+  m_Name: MonstersGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb3269cb23d1c248add352fb41ce72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mobs:
+  Monsters:
   - {fileID: 2372168703654226066, guid: 1ee35ac089e83304fa29ca3be4fff22d, type: 3}
   - {fileID: 5482361749361631271, guid: 582a6ac1f7d1ff0468d4901e870b2c10, type: 3}
   - {fileID: 7718539343423028853, guid: 9b8a6caebda781b48877488f6c399743, type: 3}

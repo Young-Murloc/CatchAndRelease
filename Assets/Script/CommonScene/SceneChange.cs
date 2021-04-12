@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public void CollectionSceneChange()
+    public void monsterListSceneChange()
     {
         SceneManager.LoadScene("monsterListScene");
+    }
+
+    public void mainSceneChange()
+    {
+        SceneManager.LoadScene("mainScene");
     }
 }
