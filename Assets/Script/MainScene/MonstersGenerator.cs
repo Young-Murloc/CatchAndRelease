@@ -23,12 +23,12 @@ public class MonstersGenerator : MonoBehaviour
 
     private void Start()
     {
-        MakeMobs(new Vector3(49, 443, 0));
-        MakeMobs(new Vector3(149, 443, 0));
-        MakeMobs(new Vector3(249, 443, 0));
-        MakeMobs(new Vector3(349, 443, 0));
-        MakeMobs(new Vector3(449, 443, 0));
-        MakeMobs(new Vector3(549, 443, 0));
-        MakeMobs(new Vector3(649, 443, 0));
+        MakeMobs(new Vector3(600, 443, 0));
+        MakeMobs(new Vector3(700, 443, 0));
+        MakeMobs(new Vector3(800, 443, 0));
+        MakeMobs(new Vector3(900, 443, 0));
+        MakeMobs(new Vector3(1000, 443, 0));
+        MakeMobs(new Vector3(1100, 443, 0));
+        MakeMobs(new Vector3(1200, 443, 0));
     }
 }

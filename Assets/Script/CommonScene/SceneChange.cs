@@ -7,11 +7,11 @@ public class SceneChange : MonoBehaviour
 {
     public void monsterListSceneChange()
     {
-        SceneManager.LoadScene("monsterListScene");
+        Loading.LoadScene("monsterListScene");
     }
 
     public void mainSceneChange()
     {
-        SceneManager.LoadScene("mainScene");
+        Loading.LoadScene("mainScene");
     }
 }

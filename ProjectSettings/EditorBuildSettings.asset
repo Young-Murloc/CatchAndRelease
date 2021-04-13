@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/monsterListScene.unity
     guid: 1e94caabf9123b449b7843c3144d50f6
+  - enabled: 1
+    path: Assets/Scenes/loadingScene.unity
+    guid: e08319f583ea2d94dae407dd93edd762
   m_configObjects: {}
