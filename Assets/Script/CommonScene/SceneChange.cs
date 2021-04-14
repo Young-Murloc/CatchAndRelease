@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    public void gameListSceneChange()
+    {
+        Loading.LoadScene("gameListScene");
+    }
+
     public void monsterListSceneChange()
     {
         Loading.LoadScene("monsterListScene");
@@ -13,5 +18,10 @@ public class SceneChange : MonoBehaviour
     public void mainSceneChange()
     {
         Loading.LoadScene("mainScene");
+    }
+
+    public void findSameImageSceneChange()
+    {
+        Loading.LoadScene("findSameImageScene");
     }
 }

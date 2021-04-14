@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/loadingScene.unity
     guid: e08319f583ea2d94dae407dd93edd762
+  - enabled: 1
+    path: Assets/Scenes/gameListScene.unity
+    guid: d18252e7afe0f9948b36ca1698505b3c
+  - enabled: 1
+    path: Assets/Scenes/findSameImageScene.unity
+    guid: bb6757a724febdf479d3557ced87b8f9
   m_configObjects: {}
