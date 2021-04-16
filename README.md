@@ -43,7 +43,7 @@ monsterList: scrollView 안에 들어갈 몬스터 넣어두기(게임 내에서
 
 0416
 
-Retry 버튼 클릭시 화면 재시작 -> LoadScene으로 하면 제대로 작동을 안함   
+Retry 버튼 클릭시 화면 재시작 -> LoadScene으로 하면 제대로 작동을 안함 -> timescale값 조정   
 점수 계산법 구현   
 
 <hr>
