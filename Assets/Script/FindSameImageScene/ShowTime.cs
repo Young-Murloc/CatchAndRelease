@@ -15,6 +15,8 @@ public class ShowTime : MonoBehaviour
     {
         UM = GameObject.Find("UiManager").GetComponent<UiManager>();
 
+        Time.timeScale = 1;
+
         time = 60f;
         Timer.text = time.ToString();
     }
