@@ -24,4 +24,9 @@ public class SceneChange : MonoBehaviour
     {
         Loading.LoadScene("findSameImageScene");
     }
+
+    public void gwentSceneChange()
+    {
+        Loading.LoadScene("gwentScene");
+    }
 }

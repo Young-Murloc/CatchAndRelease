@@ -24,4 +24,14 @@ public class PopUpManage : MonoBehaviour
     {
         popUpList[0].SetActive(false);
     }
+
+    public void setTrueGwentPanel()
+    {
+        popUpList[1].SetActive(true);
+    }
+
+    public void setFalseGwentPanel()
+    {
+        popUpList[1].SetActive(false);
+    }
 }
