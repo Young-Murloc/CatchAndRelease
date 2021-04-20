@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public MonsterManager MM;
-    public ShowScore SS;
-    public UiManager UM;
+    private MonsterManager MM;
+    private ShowScore SS;
+    private UiManager UM;
 
     private int count = 0;          // 카드 픽한 갯수
     private int[] monsterNumber = new int[2];

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShowScore : MonoBehaviour
 {
-    public UiManager UM;
+    private UiManager UM;
 
     public Text Score;
     private float scoreNumber;

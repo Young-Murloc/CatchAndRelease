@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class MonsterManager : MonoBehaviour
 {
-    public ScoreManager SM;
-    public UiManager UM;
+    private ScoreManager SM;
+    private UiManager UM;
 
     public GameObject[] monstersPrefab;
     public GameObject cardBack;

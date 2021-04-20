@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShowTime : MonoBehaviour
 {
-    public UiManager UM;
+    private UiManager UM;
 
     public Text Timer;
     private float time;
