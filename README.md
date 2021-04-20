@@ -56,6 +56,8 @@ Retry 버튼 클릭시 화면 재시작 -> LoadScene으로 하면 제대로 작�
 
 <hr>
 
+0420   
+   
 BtnCtrl -> 버튼 꾹 누르는지 확인   
 PanelManager -> 버튼 꾹 눌렀을때 설명 패널 팝업   
 BackBtnManager -> 설명 패널에 뒤로가기 눌렀을때 생성된 패널 및 버튼 삭제   
