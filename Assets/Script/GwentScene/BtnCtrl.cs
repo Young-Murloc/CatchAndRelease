@@ -51,14 +51,15 @@ public class BtnCtrl : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         else
         {
-            if (!isPlace)
+            if (!isPlace && this.gameObject.transform.parent.name == "Card")
             {
+                Debug.Log("배치");
                 PLM.setPickObj(this.gameObject);
                 isPlace = true;
             }
             else   // 명령 발동
             {
-                Debug.Log("active");
+                Debug.Log("이동");
                 PLM.setMoveObj(this.gameObject);
                 //AM.getAndSendActive(this.gameObject);
             }

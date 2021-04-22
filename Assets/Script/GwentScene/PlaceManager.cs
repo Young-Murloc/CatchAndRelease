@@ -77,30 +77,43 @@ public class PlaceManager : MonoBehaviour
             }
 
             AM.getPlace(pickObj.name);
-            CM.activePlace(pickObj.name);
+            CM.activePlace(pickObj.name, pickObj);
 
             isContinuePlace = false;
+
+            if(pickObj.name == "Geralt")
+            {
+                CM.geraltPlace(parents[setParent]);
+            }
         }
         else
         {
-            if (moveObj.transform.parent.name == "BlueFront")
+            if (moveObj.name == "Token" && CM.getTokenActive())      // 토큰 이동만 고려
             {
-                moveObj.transform.SetParent(parents[1].transform);
-            }
-            else
-            {
-                moveObj.transform.SetParent(parents[0].transform);
-            }
+                Debug.Log("1111");
 
-            movePosX = -300;
+                if (moveObj.transform.parent.name == "BlueFront")
+                {
+                    moveObj.transform.SetParent(parents[1].transform);
+                }
+                else
+                {
+                    moveObj.transform.SetParent(parents[0].transform);
+                }
 
-            for (int i = 0; i < parents[1].transform.childCount; i++)
-            {
-                movePosX += 100;
+                movePosX = -300;
+
+                for (int i = 0; i < parents[1].transform.childCount; i++)
+                {
+                    movePosX += 100;
+                }
+
+                moveObj.transform.localPosition = new Vector2(movePosX, 0);        // 위치
+                moveObj.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 147.1815f);  // 크기
+
+                setPos(parents[0].gameObject, parents[1].gameObject);       //
+                CM.activePlace(pickObj.name, pickObj);
             }
-
-            moveObj.transform.localPosition = new Vector2(movePosX, 0);        // 위치
-            moveObj.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 147.1815f);  // 크기
 
             isMoveObj = false;
         }
@@ -116,7 +129,33 @@ public class PlaceManager : MonoBehaviour
             tokenTemp.transform.localPosition = new Vector2(posX, 0);
             tokenTemp.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 147.1815f);
             tokenTemp.name = "Token";
-            CM.activePlace(pickObj.name);
+            CM.activePlace(pickObj.name, pickObj);
+        }
+    }
+
+    public void setPos(GameObject tempObj1, GameObject tempObj2)
+    {
+        posX = -200;
+
+        for (int i=0; i<tempObj1.transform.childCount; i++)
+        {
+            if (tempObj1.transform.GetChild(i).transform.localPosition.x != posX){
+                tempObj1.transform.GetChild(i).transform.localPosition = new Vector3(posX, 0, 0);
+            }
+
+            posX += 100;
+        }
+
+        posX = -200;
+
+        for (int i = 0; i < tempObj2.transform.childCount; i++)
+        {
+            if (tempObj2.transform.GetChild(i).transform.localPosition.x != posX)
+            {
+                tempObj2.transform.GetChild(i).transform.localPosition = new Vector3(posX, 0, 0);
+            }
+
+            posX += 100;
         }
     }
 
@@ -132,5 +171,7 @@ public class PlaceManager : MonoBehaviour
                 touchedObject = results[0].gameObject;
             }
         }
+
+        setPos(parents[0], parents[1]);
     }
 }

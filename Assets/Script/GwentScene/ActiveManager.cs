@@ -32,7 +32,7 @@ public class ActiveManager : MonoBehaviour
         }
         else if(name == "Token")
         {
-            CM.TokenActive(tempObj);
+            //CM.TokenActive(tempObj);
         }
         else        // wolf
         {
@@ -45,6 +45,10 @@ public class ActiveManager : MonoBehaviour
         if(name == "Triss")
         {
             PM.spawnToken();
+        }
+        else if(name == "Yennefer")
+        {
+            CM.YenneferPlace();
         }
     }
 }
