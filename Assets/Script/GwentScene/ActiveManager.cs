@@ -20,7 +20,7 @@ public class ActiveManager : MonoBehaviour
 
         if(name == "Geralt")
         {
-            CM.geraltActive();
+            //CM.geraltActive();
         }
         else if(name == "Triss")
         {

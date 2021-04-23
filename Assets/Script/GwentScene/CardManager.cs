@@ -26,9 +26,12 @@ public class CardManager : MonoBehaviour
         geraltParent = tempObj;
     }
 
-    public void geraltActive()
+    public void geraltActive(GameObject targetObj)
     {
+        int dmg = geraltArmor;
+        geraltArmor = 0;
 
+        getDamage(targetObj, dmg);
     }
 
     public void setGeraltStat(int hp, int armor)
@@ -148,6 +151,15 @@ public class CardManager : MonoBehaviour
     private int wolfHp;
     private int wolfArmor;
 
+    public void getDamage(GameObject tempObj, int dmg)
+    {
+        if(tempObj.name == "Wolf")
+        {
+            wolfHp -= dmg;
+        }
+
+        Debug.Log(wolfHp);
+    }
 
     public void activePlace(string name,GameObject tempObj)       // 카드 배치가 될때
     {
