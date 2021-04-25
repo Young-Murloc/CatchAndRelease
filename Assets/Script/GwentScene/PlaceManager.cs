@@ -112,7 +112,7 @@ public class PlaceManager : MonoBehaviour
                 moveObj.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 147.1815f);  // 크기
 
                 setPos(parents[0].gameObject, parents[1].gameObject);       //
-                CM.activePlace(pickObj.name, pickObj);
+                CM.activePlace(moveObj.name, moveObj);
             }
 
             isMoveObj = false;
