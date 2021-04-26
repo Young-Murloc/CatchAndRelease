@@ -93,7 +93,7 @@ PlaceManager -> 카드 배치 구현
 
 0426   
    
-미리 만들어둘 스크립트 정하기   
+미리 만들 스크립트 정하기   
    
 1.DefenseBtnCtrl           -> 모든 오브젝트들이 가지는 스크립트 / 배치, 스킬사용, 퇴각, 해당 유닛 정보 표시   
 2.DefenseFieldManager      -> DefenseTimeManager에서 시간 정보를 받아서 DefenseEnemyDB를 통해 적을 field에 출현시키고 적의 움직임을 관리   
