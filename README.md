@@ -90,3 +90,14 @@ PlaceManager -> 카드 배치 구현
 궨트 마무리
 
 <h1>처음부터 필요한 함수와 변수 등을 설계</h1>
+
+0426   
+   
+미리 만들어둘 스크립트 정하기   
+   
+1.DefenseBtnCtrl           -> 모든 오브젝트들이 가지는 스크립트 / 배치, 스킬사용, 퇴각, 해당 유닛 정보 표시   
+2.DefenseFieldManager      -> DefenseTimeManager에서 시간 정보를 받아서 DefenseEnemyDB를 통해 적을 field에 출현시키고 적의 움직임을 관리   
+3.DefenseSituationManager  -> DefenseFriendlyDB에서 아군의 공격 범위 정보를 받아서 적의 위치랑 비교 후 공격하는 과정을 관리   
+4.DefenseTimeManager       -> 적이 출현하는 시간 및 코스트 계산하여 UiManager에 전달   
+5.DefenseEnemyDB           -> 이름, 공격력, 방어력, 이동 속도, 체력   
+6.DefenseFriendlyDB        -> 이름, 공격력, 방어력, 체력, 배치 코스트   
