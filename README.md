@@ -99,5 +99,19 @@ PlaceManager -> 카드 배치 구현
 2.DefenseFieldManager      -> DefenseTimeManager에서 시간 정보를 받아서 DefenseEnemyDB를 통해 적을 field에 출현시키고 적의 움직임을 관리   
 3.DefenseSituationManager  -> DefenseFriendlyDB에서 아군의 공격 범위 정보를 받아서 적의 위치랑 비교 후 공격하는 과정을 관리   
 4.DefenseTimeManager       -> 적이 출현하는 시간 및 코스트 계산하여 UiManager에 전달   
-5.DefenseEnemyDB           -> 이름, 공격력, 방어력, 이동 속도, 체력   
-6.DefenseFriendlyDB        -> 이름, 공격력, 방어력, 체력, 배치 코스트   
+5.DefenseCostManager       -> 코스트 관리   
+6.DefenseLifeCountManager  -> 목숨 관리   
+7.DefenseEnemyDB           -> 이름, 공격력, 방어력, 이동 속도, 체력   
+8.DefenseFriendlyDB        -> 이름, 공격력, 방어력, 체력, 배치 코스트   
+
+<hr>
+   
+0427   
+
+기본 UI 구현   
+DefenseTimeManager 구현   
+DefenseCostManager 구현   
+DefenseLifeCountManager 구현   
+Unit prefab & 배치 대기 패널 구현
+
+<hr>
