@@ -168,7 +168,7 @@ MonoBehaviour:
   - {fileID: 624779670}
   - {fileID: 1401475888}
   geraltArmorText: {fileID: 1823198548}
-  geraltParent: {fileID: 1345125487}
+  geraltParent: {fileID: 624779670}
 --- !u!1 &209617098
 GameObject:
   m_ObjectHideFlags: 0
