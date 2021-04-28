@@ -16,4 +16,9 @@ public class DefenseTimeManager : MonoBehaviour
     {
         time += Time.deltaTime;
     }
+
+    public int getTime()
+    {
+        return (int)Mathf.Round(time);
+    }
 }
