@@ -11,8 +11,18 @@ public class DefenseCostManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        costNumber = 0f;
+        costNumber = 10f;
         costText.text = costNumber.ToString();
+    }
+
+    public float getCost()
+    {
+        return Mathf.Round(costNumber);
+    }
+
+    public void setCost(float cost)
+    {
+        costNumber -= cost;
     }
 
     // Update is called once per frame

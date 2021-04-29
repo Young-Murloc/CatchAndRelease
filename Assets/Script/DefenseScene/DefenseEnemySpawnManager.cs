@@ -40,7 +40,7 @@ public class DefenseEnemySpawnManager : MonoBehaviour
     void Update()
     {
         time = DTM.getTime();
-        if(spawnTiming[time] <= 2 && !checkSpawn[time])       // 소환 해야함
+        if(spawnTiming[time] <= 2 && !checkSpawn[time] && time <= 60f)       // 소환 해야함
         {
             checkSpawn[time] = true;
 

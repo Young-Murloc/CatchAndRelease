@@ -14,24 +14,18 @@ public class DefenseEnemyStatusManager : MonoBehaviour
     {
         if(this.name == "Brain(Clone)")
         {
-            Debug.Log("Brain");
             hp = 100f;
             speed = 100f;
-            Debug.Log(hp);
         }
         else if(this.name == "Eyeball(Clone)")
         {
-            Debug.Log("Eyeball");
             hp = 150f;
             speed = 50f;
-            Debug.Log(hp);
         }
         else
         {
-            Debug.Log("Mushroom");
             hp = 200f;
             speed = 25f;
-            Debug.Log(hp);
         }
     }
 
