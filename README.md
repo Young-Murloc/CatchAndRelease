@@ -133,6 +133,6 @@ Unit prefab & 배치 대기 패널 구현
 
 0430
 
-monolith 광역공격 방법 생각하기   
+monolith 광역 공격 완료
 
 <hr>
