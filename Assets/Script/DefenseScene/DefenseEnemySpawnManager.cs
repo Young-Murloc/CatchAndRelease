@@ -15,6 +15,8 @@ public class DefenseEnemySpawnManager : MonoBehaviour
     private int time;
     private GameObject tempObj;
 
+    private int objName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,8 @@ public class DefenseEnemySpawnManager : MonoBehaviour
         spawnTiming[40] = 1;
         spawnTiming[45] = 2;
         spawnTiming[55] = 1;
+
+        objName = 0;
     }
 
     // Update is called once per frame
@@ -47,6 +51,8 @@ public class DefenseEnemySpawnManager : MonoBehaviour
             tempObj = Instantiate(Enemy[spawnTiming[time]], new Vector3(0, 0, 0), Quaternion.identity);
             tempObj.transform.SetParent(fieldEnemy.transform);
             tempObj.transform.localPosition = new Vector2(-205, 200);
+            tempObj.name = objName.ToString();
+            objName++;
         }
     }
 }

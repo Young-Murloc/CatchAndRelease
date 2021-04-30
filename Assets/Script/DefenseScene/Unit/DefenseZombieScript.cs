@@ -25,7 +25,6 @@ public class DefenseZombieScript : MonoBehaviour
     {
         if (!isAtk && collision.tag == "Enemy")
         {
-            time = zombieAtkSpeed;
             isAtk = true;
             targetObj = collision.gameObject;
             Debug.Log(targetObj.name);
