@@ -6844,7 +6844,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1289502002828717304, guid: 2901bc3c735485048b6d2fe0d9ab10cf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2901bc3c735485048b6d2fe0d9ab10cf, type: 3}
 --- !u!1001 &2251343591600585138
 PrefabInstance:
@@ -6963,7 +6964,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monolith
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5890802380464815412, guid: e375562d4586eef49afccab1cb704cdf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e375562d4586eef49afccab1cb704cdf, type: 3}
 --- !u!224 &2264586003230443306 stripped
 RectTransform:
@@ -7088,7 +7090,9 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 4765633083221171982, guid: 2e06b6b50ff73bc46a75d74f1015531c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e06b6b50ff73bc46a75d74f1015531c, type: 3}
 --- !u!224 &2513862552101091556 stripped
 RectTransform:
@@ -7213,7 +7217,9 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: -687893091332590393, guid: 44404f798c102114a873aef8959371d2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 44404f798c102114a873aef8959371d2, type: 3}
 --- !u!224 &5041421799033956724 stripped
 RectTransform:
@@ -7338,7 +7344,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 474177447468544703, guid: f31c638e9236d4d4cad7d0241e63f522, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f31c638e9236d4d4cad7d0241e63f522, type: 3}
 --- !u!224 &7718539341812397092 stripped
 RectTransform:

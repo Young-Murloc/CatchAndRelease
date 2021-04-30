@@ -28,9 +28,9 @@ public class DefenseEnemySpawnManager : MonoBehaviour
 
         // 몬스터 스폰 타이밍 저장
         spawnTiming[10] = 0;
-        spawnTiming[15] = 1;
-        spawnTiming[25] = 2;
-        spawnTiming[30] = 0;
+        spawnTiming[11] = 1;
+        spawnTiming[12] = 2;
+        spawnTiming[13] = 0;
         spawnTiming[40] = 1;
         spawnTiming[45] = 2;
         spawnTiming[55] = 1;
