@@ -140,3 +140,14 @@ monolith 광역 공격 완료
 0507  
    
 3 match 퍼즐게임 만들기 위한 스크립트 설계
+
+1. CreateTileScript     - 타일 생성
+2. TileManagerScript    - 타일 관리 
+3. MoveTileScript       - 타일 움직임
+4. SpawnEnemyScript     - 적 생성
+5. AllyScript           - 아군 능력 관리
+6. EnemyScript          - 적 능력 관리
+7. EffectScript?        - 게임 이펙트 관리
+8. DmgCtrlScript        - 터진 타일 배열 관리
+
+<hr>
