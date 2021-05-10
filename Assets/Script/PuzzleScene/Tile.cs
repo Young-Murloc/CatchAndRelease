@@ -4,65 +4,98 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-	private static Color selectedColor = new Color(.5f, .5f, .5f, 1.0f);
-	private static Tile previousSelected = null;
+	private Camera cam;
 
-	private SpriteRenderer render;
-	private bool isSelected = false;
+	private GameObject selectObj1;
+	private GameObject selectObj2;
 
-	void Awake()
+	private Vector2 selectObj1Pos;
+	private Vector2 selectObj2Pos;
+
+	private bool isSwap;
+
+	void Start()
 	{
-		render = GetComponent<SpriteRenderer>();
+		cam = GameObject.Find("Main Camera").GetComponent<Camera>();
 	}
-
-	private void Select()
-	{
-		isSelected = true;
-		render.color = selectedColor;
-		previousSelected = gameObject.GetComponent<Tile>();
-	}
-
-	private void Deselect()
-	{
-		isSelected = false;
-		render.color = Color.white;
-		previousSelected = null;
-	}
-
-	private void OnMouseDown()
-	{
-		if (render.sprite == null || BoardManagerScript.instance.isShifting)
-		{
-			return;
-		}
-
-		if (isSelected) 
-		{ 
-			Deselect();
-		}
-		else
-		{
-			if (previousSelected == null)
-			{
-				Select();
-			}
-			else
-			{
-				SwapTile(previousSelected.render);
-				previousSelected.Deselect();
-			}
-		}
-	}
-
-	private void SwapTile(SpriteRenderer render2)
+	
+    private void OnMouseDown()
     {
-		if(render.sprite == render2.sprite)
+		Vector3 MousePos = Input.mousePosition;
+		MousePos = cam.ScreenToWorldPoint(MousePos);
+		
+		RaycastHit2D hit = Physics2D.Raycast(MousePos, transform.forward, 15f);
+
+        if (hit)
         {
-			return;
+			selectObj1 = hit.transform.gameObject;
         }
 
-		Sprite tempSprite = render2.sprite;
-		render2.sprite = render.sprite;
-		render.sprite = tempSprite;
+    }
+
+    private void OnMouseUp()			// selectObj1과 같은 obj를 hit한 경우 선택 취소
+    {
+		Vector3 MousePos = Input.mousePosition;
+		MousePos = cam.ScreenToWorldPoint(MousePos);
+
+		RaycastHit2D hit = Physics2D.Raycast(MousePos, transform.forward, 15f);
+
+		if (hit)
+		{
+			selectObj2 = hit.transform.gameObject;
+		}
+
+		if(selectObj1 != null && selectObj2 != null)
+        {
+            if (IsAdjacent(selectObj1, selectObj2))
+            {
+				SwapTile(selectObj1, selectObj2);
+            }
+		}
+	}
+
+	private bool IsAdjacent(GameObject selectObj1, GameObject selectObj2)							// 인접한 타일인지 확인
+    {
+		Vector2 pos = new Vector2(selectObj2.transform.position.x - selectObj1.transform.position.x, selectObj2.transform.position.y - selectObj1.transform.position.y);
+
+		if (Mathf.Abs(pos.x) == 1 || Mathf.Abs(pos.y) == 1)
+			return true;
+
+		return false;
+	}
+
+	private void SwapTile(GameObject selectObj1,GameObject selectObj2)
+    {
+		// 타일 스프라이트 교체
+		/*
+		if (selectObj1.GetComponent<SpriteRenderer>().sprite == selectObj2.GetComponent<SpriteRenderer>().sprite)
+			return;
+
+		Sprite tempSprite = selectObj1.GetComponent<SpriteRenderer>().sprite;
+		selectObj1.GetComponent<SpriteRenderer>().sprite = selectObj2.GetComponent<SpriteRenderer>().sprite;
+		selectObj2.GetComponent<SpriteRenderer>().sprite = tempSprite;
+		*/
+		// 타일 위치 교체
+
+		isSwap = true;
+
+		selectObj1Pos = selectObj1.transform.position;
+		selectObj2Pos = selectObj2.transform.position;
+	}
+
+    private void Update()
+    {
+        if (isSwap)
+        {
+			float MovementSpeed = 3f;
+
+			selectObj1.transform.position = Vector2.MoveTowards(selectObj1.transform.position, selectObj2Pos, MovementSpeed * Time.deltaTime);
+			selectObj2.transform.position = Vector2.MoveTowards(selectObj2.transform.position, selectObj1Pos, MovementSpeed * Time.deltaTime);
+
+			if((Vector2)selectObj1.transform.position == selectObj2Pos && (Vector2)selectObj2.transform.position == selectObj1Pos)
+            {
+				isSwap = false;
+            }
+		}
     }
 }
