@@ -29,4 +29,9 @@ public class SceneChange : MonoBehaviour
     {
         Loading.LoadScene("gwentScene");
     }
+
+    public void defenseSceneChange()
+    {
+        Loading.LoadScene("DefenseScene");
+    }
 }

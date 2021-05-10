@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/gwentScene.unity
     guid: 151d82ec706ed404aaf90851b1bb1dc8
+  - enabled: 1
+    path: Assets/Scenes/defenseScene.unity
+    guid: 74ab33b7d593af7428498131a2591253
   m_configObjects: {}
