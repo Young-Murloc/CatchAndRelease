@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoardManagerScript : MonoBehaviour
 {
     public static BoardManagerScript instance;
+    private Match3Script M3S;
 
     public List<Sprite> characters = new List<Sprite>();
     public GameObject tile;
@@ -22,6 +23,8 @@ public class BoardManagerScript : MonoBehaviour
     void Start()
     {
         instance = GetComponent<BoardManagerScript>();
+
+        M3S = GameObject.Find("Match3Manager").GetComponent<Match3Script>();
 
         Vector2 offset = tile.GetComponent<SpriteRenderer>().bounds.size;
         CreateBoard(offset.x, offset.y);
@@ -87,6 +90,8 @@ public class BoardManagerScript : MonoBehaviour
                 }
             }
         }
+
+        checkAllTiles();        // 3단계 터지는것 확인
     }
 
     private IEnumerator ShiftTilesDown(int x, int y, float shiftDelay = .03f)
@@ -108,10 +113,16 @@ public class BoardManagerScript : MonoBehaviour
         for(int i=0; i<nullCount; i++)
         {
             yield return new WaitForSeconds(shiftDelay);
-            for (int j = 0; j < renders.Count - 1; j++)
+
+            for (int j = 0; j < renders.Count-1; j++)
             {
                 renders[j].sprite = renders[j + 1].sprite;
                 renders[j + 1].sprite = GetNewSprite(x,ySize-1);
+            }
+
+            if(renders.Count == 1)          // 맨위 터질경우 채워주는 역할
+            {
+                renders[0].sprite = GetNewSprite(x, ySize - 1);
             }
         }
 
@@ -139,5 +150,24 @@ public class BoardManagerScript : MonoBehaviour
         }
 
         return possibleCharacters[Random.Range(0, possibleCharacters.Count)];
+    }
+
+    private bool checkAllTiles()
+    {
+        bool isMatched = false;
+        bool temp = false;
+
+        for (int i = 0; i < xSize; i++)
+        {
+            for (int j = 0; j < ySize; j++)
+            {
+                temp = M3S.IsMatch(tiles[i, j]);
+
+                if (temp)
+                    isMatched = true;
+            }
+        }
+
+        return isMatched;
     }
 }
