@@ -189,6 +189,8 @@ monolith 광역 공격 완료
 <방법1>   
 clearAllMatch 함수 제작 후 모든 타일을 검사하면서 터질 타일들을 killList 전달 후 killTile 실행   
    
-해결: 
+해결: checkAllMatch 함수를 만들어서 모든 타일을 IsMatch로 전달하여 계산 (3단 터짐 확인)
+
+내일 할 일: 4개 이상 터질 경우 폭탄으로 변경, 터지는 세로 타일들 수 계산하여 해당 라인 적 공격 구현   
 
 <hr>
