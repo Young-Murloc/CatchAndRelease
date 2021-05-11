@@ -12,6 +12,10 @@ public class BoardManagerScript : MonoBehaviour
 
     private GameObject[,] tiles;
 
+    private int tempX1, tempY1;
+    private int tempX2, tempY2;
+    private GameObject tempObj;
+
     public bool isShifting { get; set; }
 
     // Start is called before the first frame update
@@ -54,5 +58,86 @@ public class BoardManagerScript : MonoBehaviour
                 previousBelow = newSprite;
             }
         }
+    }
+
+    public void changeTiles(GameObject selectObj1, GameObject selectObj2)       // tiles에 저장된 오브젝트 함께 변경
+    {
+        tempX1 = (int)selectObj1.transform.position.x;
+        tempY1 = (int)selectObj1.transform.position.y;
+
+        tempX2 = (int)selectObj2.transform.position.x;
+        tempY2 = (int)selectObj2.transform.position.y;
+
+        tempObj = tiles[tempX2, tempY2];
+
+        tiles[tempX2, tempY2] = tiles[tempX1, tempY1];
+        tiles[tempX1, tempY1] = tempObj;
+    }
+
+    public IEnumerator FindNullTiles()
+    {
+        for(int i=0; i<xSize; i++)
+        {
+            for(int j=0; j<ySize; j++)
+            {
+                if(tiles[i,j].GetComponent<SpriteRenderer>().sprite == null)
+                {
+                    yield return StartCoroutine(ShiftTilesDown(i, j));
+                    break;
+                }
+            }
+        }
+    }
+
+    private IEnumerator ShiftTilesDown(int x, int y, float shiftDelay = .03f)
+    {
+        isShifting = true;
+        List<SpriteRenderer> renders = new List<SpriteRenderer>();
+        int nullCount = 0;
+
+        for(int i = y; i<ySize; i++)
+        {
+            SpriteRenderer render = tiles[x, i].GetComponent<SpriteRenderer>();
+
+            if (render.sprite == null)
+                nullCount++;
+
+            renders.Add(render);
+        }
+
+        for(int i=0; i<nullCount; i++)
+        {
+            yield return new WaitForSeconds(shiftDelay);
+            for (int j = 0; j < renders.Count - 1; j++)
+            {
+                renders[j].sprite = renders[j + 1].sprite;
+                renders[j + 1].sprite = GetNewSprite(x,ySize-1);
+            }
+        }
+
+        isShifting = false;
+    }
+
+    private Sprite GetNewSprite(int x, int y)
+    {
+        List<Sprite> possibleCharacters = new List<Sprite>();
+        possibleCharacters.AddRange(characters);
+
+        if (x > 0)
+        {
+            possibleCharacters.Remove(tiles[x - 1, y].GetComponent<SpriteRenderer>().sprite);
+        }
+
+        if(x < xSize - 1)
+        {
+            possibleCharacters.Remove(tiles[x + 1, y].GetComponent<SpriteRenderer>().sprite);
+        }
+
+        if(y > 0)
+        {
+            possibleCharacters.Remove(tiles[x, y - 1].GetComponent<SpriteRenderer>().sprite);
+        }
+
+        return possibleCharacters[Random.Range(0, possibleCharacters.Count)];
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+	private Match3Script M3S;
+
 	private Camera cam;
 
 	private GameObject selectObj1;
@@ -16,6 +18,8 @@ public class Tile : MonoBehaviour
 
 	void Start()
 	{
+		M3S = GameObject.Find("Match3Manager").GetComponent<Match3Script>();
+
 		cam = GameObject.Find("Main Camera").GetComponent<Camera>();
 	}
 	
@@ -30,7 +34,6 @@ public class Tile : MonoBehaviour
         {
 			selectObj1 = hit.transform.gameObject;
         }
-
     }
 
     private void OnMouseUp()			// selectObj1과 같은 obj를 hit한 경우 선택 취소
@@ -58,7 +61,7 @@ public class Tile : MonoBehaviour
     {
 		Vector2 pos = new Vector2(selectObj2.transform.position.x - selectObj1.transform.position.x, selectObj2.transform.position.y - selectObj1.transform.position.y);
 
-		if (Mathf.Abs(pos.x) == 1 || Mathf.Abs(pos.y) == 1)
+		if ((Mathf.Abs(pos.x) == 1 && Mathf.Abs(pos.y) == 0) || (Mathf.Abs(pos.x) == 0 && Mathf.Abs(pos.y) == 1))
 			return true;
 
 		return false;
@@ -81,6 +84,8 @@ public class Tile : MonoBehaviour
 
 		selectObj1Pos = selectObj1.transform.position;
 		selectObj2Pos = selectObj2.transform.position;
+
+		BoardManagerScript.instance.changeTiles(selectObj1, selectObj2);
 	}
 
     private void Update()
@@ -95,6 +100,7 @@ public class Tile : MonoBehaviour
 			if((Vector2)selectObj1.transform.position == selectObj2Pos && (Vector2)selectObj2.transform.position == selectObj1Pos)
             {
 				isSwap = false;
+				M3S.IsMatch(selectObj1);
             }
 		}
     }
