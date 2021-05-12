@@ -8,6 +8,7 @@ public class BoardManagerScript : MonoBehaviour
     private Match3Script M3S;
 
     public List<Sprite> characters = new List<Sprite>();
+    public Sprite boom;
     public GameObject tile;
     public int xSize, ySize;
 
@@ -116,8 +117,11 @@ public class BoardManagerScript : MonoBehaviour
 
             for (int j = 0; j < renders.Count-1; j++)
             {
-                renders[j].sprite = renders[j + 1].sprite;
-                renders[j + 1].sprite = GetNewSprite(x,ySize-1);
+                if(!(renders[j].sprite == boom))        // 별의 경우는 이동 X
+                {
+                    renders[j].sprite = renders[j + 1].sprite;
+                    renders[j + 1].sprite = GetNewSprite(x, ySize - 1);
+                }
             }
 
             if(renders.Count == 1)          // 맨위 터질경우 채워주는 역할
@@ -169,5 +173,10 @@ public class BoardManagerScript : MonoBehaviour
         }
 
         return isMatched;
+    }
+
+    public void changeBoom(GameObject obj)
+    {
+        obj.GetComponent<SpriteRenderer>().sprite = boom;
     }
 }

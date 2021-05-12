@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+public class TileScript : MonoBehaviour
 {
 	private Match3Script M3S;
 
@@ -33,6 +33,11 @@ public class Tile : MonoBehaviour
         if (hit)
         {
 			selectObj1 = hit.transform.gameObject;
+
+			if(hit.collider.gameObject.GetComponent<SpriteRenderer>().sprite.name == "Star")		// 폭탄 누를경우 전부 터지는 코드 구현
+            {
+				M3S.boomActive(hit.collider.gameObject);
+            }
         }
     }
 

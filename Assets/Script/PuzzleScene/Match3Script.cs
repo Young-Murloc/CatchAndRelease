@@ -24,6 +24,7 @@ public class Match3Script : MonoBehaviour
     private Vector2[] directions1 = new Vector2[] { Vector2.up, Vector2.down };     // 위, 아래 - L자로 터지는것을 방지하기 위해
     private Vector2[] directions2 = new Vector2[] { Vector2.left, Vector2.right };  // 오른, 왼
 
+    private Vector2[] directionsAll = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
 
     // Start is called before the first frame update
     void Start()
@@ -81,9 +82,19 @@ public class Match3Script : MonoBehaviour
             killList.Add(temp);
         }
 
-        if (verticalCount >= 3 || horizonCount >= 3)
+        if (verticalCount == 3 || horizonCount == 3)
         {
             killList.Add(mainObj);
+
+            killTile(killList);
+
+            resetVar();
+
+            return true;
+        }
+        else if(verticalCount > 3 || horizonCount > 3)
+        {
+            BoardManagerScript.instance.changeBoom(mainObj);
 
             killTile(killList);
 
@@ -95,6 +106,23 @@ public class Match3Script : MonoBehaviour
         resetVar();
 
         return false;
+    }
+
+    public void boomActive(GameObject mainObj)          // 폭탄 작동
+    {
+        for(int i=0; i<directionsAll.Length; i++)
+        {
+            hits = Physics2D.RaycastAll(mainObj.transform.position, directionsAll[i], 7f);       // 7f 길이
+
+            for(int j=0; j<hits.Length; j++)
+            {
+                killList.Add(hits[j].collider.gameObject);
+            }
+        }
+
+        killTile(killList);
+
+        resetVar();
     }
 
     private void killTile(List<GameObject> killList)
