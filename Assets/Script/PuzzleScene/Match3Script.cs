@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Match3Script : MonoBehaviour
 {
+    private EnemyStatScript ESS;
+
     private Sprite sprite;
     private Vector2 mainPos;
 
@@ -15,8 +17,7 @@ public class Match3Script : MonoBehaviour
     private int horizonCount;       // 가로 매칭 타일 수
     private List<GameObject> horizonMatchObj = new List<GameObject>();   // 가로 매칭 오브젝트
 
-    private bool isFourMatch;       // 4개 폭탄 확인
-    private bool isFiveMatch;       // 5개 폭탄 확인
+    private List<int> tileDmgCount = new List<int>() { 0, 0, 0, 0, 0 };
 
     private GameObject tempObj;     // 매칭 비교용 임시 오브젝트 변수
 
@@ -29,6 +30,8 @@ public class Match3Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ESS = GameObject.Find("EnemyManager").GetComponent<EnemyStatScript>();
+
         verticalCount = 1;
         horizonCount = 1;
     }
@@ -130,7 +133,11 @@ public class Match3Script : MonoBehaviour
         foreach(GameObject temp in killList)
         {
             temp.GetComponent<SpriteRenderer>().sprite = null;
+
+            tileDmgCount[(int)temp.transform.position.x]++;
         }
+
+        ESS.getDmg(tileDmgCount);
 
         StopCoroutine(BoardManagerScript.instance.FindNullTiles());
         StartCoroutine(BoardManagerScript.instance.FindNullTiles());
@@ -143,5 +150,6 @@ public class Match3Script : MonoBehaviour
         verticalMatchObj = new List<GameObject>();
         horizonMatchObj = new List<GameObject>();
         killList = new List<GameObject>();
+        tileDmgCount = new List<int>() { 0, 0, 0, 0, 0 };
     }
 }
