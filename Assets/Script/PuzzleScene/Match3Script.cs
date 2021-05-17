@@ -5,6 +5,7 @@ using UnityEngine;
 public class Match3Script : MonoBehaviour
 {
     private EnemyStatScript ESS;
+    private AllySkillScript ASS;
 
     private Sprite sprite;
     private Vector2 mainPos;
@@ -17,7 +18,7 @@ public class Match3Script : MonoBehaviour
     private int horizonCount;       // 가로 매칭 타일 수
     private List<GameObject> horizonMatchObj = new List<GameObject>();   // 가로 매칭 오브젝트
 
-    private List<int> tileDmgCount = new List<int>() { 0, 0, 0, 0, 0 };
+    private List<int> tilePopCount = new List<int>() { 0, 0, 0, 0, 0 };
 
     private GameObject tempObj;     // 매칭 비교용 임시 오브젝트 변수
 
@@ -31,6 +32,7 @@ public class Match3Script : MonoBehaviour
     void Start()
     {
         ESS = GameObject.Find("EnemyManager").GetComponent<EnemyStatScript>();
+        ASS = GameObject.Find("AllyManager").GetComponent<AllySkillScript>();
 
         verticalCount = 1;
         horizonCount = 1;
@@ -134,10 +136,11 @@ public class Match3Script : MonoBehaviour
         {
             temp.GetComponent<SpriteRenderer>().sprite = null;
 
-            tileDmgCount[(int)temp.transform.position.x]++;
+            tilePopCount[(int)temp.transform.position.x]++;
         }
 
-        ESS.getDmg(tileDmgCount);
+        ESS.getDmg(tilePopCount);
+        ASS.chargeSkill(tilePopCount);
 
         StopCoroutine(BoardManagerScript.instance.FindNullTiles());
         StartCoroutine(BoardManagerScript.instance.FindNullTiles());
@@ -150,6 +153,6 @@ public class Match3Script : MonoBehaviour
         verticalMatchObj = new List<GameObject>();
         horizonMatchObj = new List<GameObject>();
         killList = new List<GameObject>();
-        tileDmgCount = new List<int>() { 0, 0, 0, 0, 0 };
+        tilePopCount = new List<int>() { 0, 0, 0, 0, 0 };
     }
 }
