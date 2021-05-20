@@ -15,6 +15,7 @@
 <h2>카드뒤집기</h2>
 <h2>Gwent:ThroneBraker Puzzle</h2>
 <h2>3MatchPuzzle with RPG</h2>
+<h2>Pricone</h2>
 
 <hr>
 0412 
@@ -224,3 +225,17 @@ https://user-images.githubusercontent.com/78486158/118498954-79e9ac80-b761-11eb-
 1. 불완전한 함수 보수 (cross check, spawn tile...)
 2. 타일 터지는 이펙트 추가
 3. 체계적인 클래스 설계
+
+<hr>
+
+0520   
+   
+프리코네 전투 화면 구현   
+   
+1. AllyManager - 아군 생성 및 관리   
+2. EnemyManager - 적군 생성 및 관리   
+3. MoveManager - 아군 움직임 관리   
+4. AtkManager - 아군 공격 관리   
+5. ColliderManager - 적군 접촉 관리   
+
+<hr>
