@@ -239,3 +239,18 @@ https://user-images.githubusercontent.com/78486158/118498954-79e9ac80-b761-11eb-
 5. ColliderManager - 적군 접촉 관리   
 
 <hr>
+
+0524
+
+1. 아군 생성 - AllyManager   
+2. 적군 생성 - EnemyManager
+3. 아군 개인 스크립트 - BatManager   
+4. 적군 개인 스크립트 - GhastManager   
+5. 전투 스크립트 - CombatManager   
+   
+<할 일>   
+1. 아군 스크립트 공격 부분 구현(시간에 따라 공격, CM으로 공격하는 오브젝트/피해 전달)   
+2. 적군 스크립트 공격 부분 구현(시간에 따라 공격, CM으로 공격하는 오브젝트/피해 전달, 첫 공격 받을 시 상대 를 향해 이동)   
+3. CM에 공격 명령을 받아서 전달하는 함수 구현(GameObject targetObj, float Dmg)   
+
+<hr>
