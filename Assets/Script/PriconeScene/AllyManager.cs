@@ -23,6 +23,7 @@ public class AllyManager : MonoBehaviour
             tempObj.transform.SetParent(this.transform);
             tempObj.transform.localPosition = tempV;
             tempObj.transform.localScale = new Vector2(5f, 5f);
+            tempObj.name = ally[i].name;
         }
     }
 }

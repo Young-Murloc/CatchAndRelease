@@ -15,12 +15,6 @@ public class EnemyManager : MonoBehaviour
         generateEnemy();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void generateEnemy()
     {
         for(int i=0; i<enemy.Length; i++)
@@ -29,6 +23,7 @@ public class EnemyManager : MonoBehaviour
             tempObj.transform.SetParent(this.transform);
             tempObj.transform.localPosition = tempV;
             tempObj.transform.localScale = new Vector2(5f, 5f);
+            tempObj.name = enemy[i].name;
         }
     }
 }
