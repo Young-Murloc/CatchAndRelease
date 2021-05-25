@@ -263,6 +263,7 @@ https://user-images.githubusercontent.com/78486158/118498954-79e9ac80-b761-11eb-
 <고민할점>   
 공격을 중간에 전달할수 있는 방법   
 A Script <-> CM Object & Script <-> B Script   
+지금은 중간에 스크립트를 거치지 않고 바로 전달 <- 효율적?   
    
 <할 일>   
 showLogManager를 통해 데미지 출력   
