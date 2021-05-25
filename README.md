@@ -254,3 +254,19 @@ https://user-images.githubusercontent.com/78486158/118498954-79e9ac80-b761-11eb-
 3. CM에 공격 명령을 받아서 전달하는 함수 구현(GameObject targetObj, float Dmg)   
 
 <hr>
+
+0525   
+   
+1. 아군 스크립트 - 움직임, 공격   
+2. 적군 스크립트 - 움직임, 공격   
+   
+<고민할점>   
+공격을 중간에 전달할수 있는 방법   
+A Script <-> CM Object & Script <-> B Script   
+   
+<할 일>   
+showLogManager를 통해 데미지 출력   
+오브젝트 사라질 경우 이동 구현   
+캐릭터 스킬 버튼 및 스킬 구현   
+
+<hr>
