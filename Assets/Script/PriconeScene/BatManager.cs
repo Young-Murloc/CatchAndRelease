@@ -5,6 +5,7 @@ using UnityEngine;
 public class BatManager : MonoBehaviour
 {
     //private CombatManager CM;
+    private ShowLogManager SLM;
 
     private float batHP;
 
@@ -24,6 +25,8 @@ public class BatManager : MonoBehaviour
     void Start()
     {
         //CM = GameObject.Find("CombatManager").GetComponent<CombatManager>();
+
+        SLM = GameObject.Find("ShowLogManager").GetComponent<ShowLogManager>();
 
         batHP = 100f;
 
@@ -75,6 +78,10 @@ public class BatManager : MonoBehaviour
                 if (enemyObj.name == "Ghast")
                 {
                     enemyObj.GetComponent<GhastManager>().getDmg(dmg);
+
+                    Vector2 tempVec = Camera.main.WorldToScreenPoint(this.transform.position);
+
+                    SLM.getPosAndDmg(this.transform.localPosition, dmg);
 
                     Debug.Log("Bat" + batHP);
                 }
