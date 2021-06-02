@@ -287,3 +287,7 @@ showLogManager를 통해 데미지 출력
 애니메이션 적용 실습   
    
 상태에 맞게 애니메이션이 출력 되게 구현   
+   
+using UnityEditor;   
+Animator animator = GetComponent<Animator>();   
+   
