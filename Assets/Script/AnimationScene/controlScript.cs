@@ -28,5 +28,11 @@ public class controlScript : MonoBehaviour
         {
             animator.SetBool("Attack", true);
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            animator.SetBool("Walk", false);
+            animator.SetBool("Attack", false);
+        }
     }
 }
