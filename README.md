@@ -295,4 +295,9 @@ Animator animator = GetComponent<Animator>();
    
 0603   
 
-연습한 내용을 기반으로 pricone scene에서 적용
+연습한 내용을 기반으로 pricone scene에서 적용   
+   
+animator 컴포넌트 접근 후 SetBool을 통해 적용   
+기본적인 애니메이션 존재 -> 다른 모션 실행 후 false -> 기본 애니메이션으로 자동 변경   
+
+<hr>
