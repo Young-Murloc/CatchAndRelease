@@ -291,3 +291,8 @@ showLogManager를 통해 데미지 출력
 using UnityEditor;   
 Animator animator = GetComponent<Animator>();   
    
+<hr>
+   
+0603   
+
+연습한 내용을 기반으로 pricone scene에서 적용
