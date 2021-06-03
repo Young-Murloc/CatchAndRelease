@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class BatManager : MonoBehaviour
 {
     //private CombatManager CM;
     private ShowLogManager SLM;
+
+    private Animator animator;
 
     private float batHP;
 
@@ -28,6 +31,8 @@ public class BatManager : MonoBehaviour
 
         SLM = GameObject.Find("ShowLogManager").GetComponent<ShowLogManager>();
 
+        animator = GetComponent<Animator>();
+
         batHP = 100f;
 
         isAtk = false;
@@ -47,6 +52,8 @@ public class BatManager : MonoBehaviour
             isAtk = true;
             enemyObj = collision.gameObject;
             //enemyName = collision.gameObject.name;
+
+            animator.SetBool("Walk", false);
         }
     }
 
@@ -66,6 +73,7 @@ public class BatManager : MonoBehaviour
         if (!isAtk)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, 1f * Time.deltaTime);
+            animator.SetBool("Walk", true);
         }
         else
         {
@@ -78,6 +86,7 @@ public class BatManager : MonoBehaviour
                 if (enemyObj.name == "Ghast")
                 {
                     enemyObj.GetComponent<GhastManager>().getDmg(dmg);
+                    animator.SetBool("Attack", true);
 
                     Vector2 tempVec = Camera.main.WorldToScreenPoint(this.transform.position);
 

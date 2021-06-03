@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class GhastManager : MonoBehaviour
 {
     //private CombatManager CM;
+
+    private Animator animator;
 
     private float ghastHP;
 
@@ -25,6 +28,8 @@ public class GhastManager : MonoBehaviour
     void Start()
     {
         //CM = GameObject.Find("CombatManager").GetComponent<CombatManager>();
+
+        animator = GetComponent<Animator>();
 
         ghastHP = 100f;
 
@@ -73,14 +78,16 @@ public class GhastManager : MonoBehaviour
         if (isMove)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, 1f * Time.deltaTime);
+            animator.SetBool("Walk", true);
 
             if(this.transform.position.x == target.x)
             {
+                animator.SetBool("Walk", false);
                 isMove = false;
             }
         }
 
-        if (isAtk)
+        if (isAtk && !isMove)       // 공격 가능 + 움직이지 않는 상태 (근접한 상태)
         {
             currentTime += Time.deltaTime * 1f;
 
@@ -91,6 +98,7 @@ public class GhastManager : MonoBehaviour
                 if (enemyObj.name == "Bat")
                 {
                     enemyObj.GetComponent<BatManager>().getDmg(dmg);
+                    animator.SetBool("Attack", true);
 
                     Debug.Log("Ghast" + ghastHP);
                 }
