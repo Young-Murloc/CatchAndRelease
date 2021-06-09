@@ -308,7 +308,35 @@ navmash -> 캐릭터가 복잡한 길을 찾아 목적지에 도착하게 도와
 AI를 이용 / Nav Mesh, Nav Mesh Agent, Nav Mesh Obstacle   
    
 windows -> AI -> Navigation   
-1. Agent - 
-2. Areas - 
-3. Bake - 
-4. Object - 
+1. Agent - 충돌할 agent의 크기, 높이 등을 설정  
+2. Areas - 가중치를 이용하여 ai가 기피하는 길을 설정   
+3. Bake - nav mesh를 굽는다 -> 캐릭터가 이동 할 수 있는 길을 설정   
+4. Object - all, mesh Renderer, terrians   
+   
+Nav Mesh Component   
+base offset - character와 agent의 높이 맞추기   
+   
+steering   
+1. speed - 속도   
+2. angular speed - 회전 속도   
+3. acceleration - 가속도   
+4. stopping distance - 멈추는 거리 설정   
+5. auto breaking - 감속 설정 
+   
+obstacle avoidance   
+1. radius - collider랑 비슷, 접촉 하는 부분의 크기를 설정   
+2. height - agent간 높이 충돌   
+3. quaility - 피할때 정밀 / 대충 / 무시 설정   
+4. priority - 우선 순위 설정 / 0 > P > 99 / 높을수록 무시, 낮을수록 밀기 불가능   
+   
+path finding
+1. auto repath - 막힌 길인 경우 경로 자동 재 계산 / 싫다면 스크립트 작성   
+2. area mask - agent가 다닐수 있는 영역 설정
+   
+Nav Mesh Obstacle - 게임 플레이 되는 동안 움직임이 가능한 장애물 생성 가능   
+carve - 실시간 계산을 통해 nav mesh를 생성   
+1. move threshold - 움직임의 정도를 수치화 하여 carve 수행   
+2. time to stationary - 멈춘 시간 후 carve 수행   
+3. carve only stationary - 멈추고 carve 수행   
+   
+<hr>
