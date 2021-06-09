@@ -304,6 +304,11 @@ animator 컴포넌트 접근 후 SetBool을 통해 적용
 
 0609
    
-navmash -> 길찾기 영역을 설정   
-캐릭터가 복잡한 길을 찾아 목적지에 도착하게 도와주는 역할
+navmash -> 캐릭터가 복잡한 길을 찾아 목적지에 도착하게 도와주는 역할 
+AI를 이용 / Nav Mesh, Nav Mesh Agent, Nav Mesh Obstacle   
    
+windows -> AI -> Navigation   
+1. Agent - 
+2. Areas - 
+3. Bake - 
+4. Object - 
