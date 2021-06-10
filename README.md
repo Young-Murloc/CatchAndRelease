@@ -340,3 +340,35 @@ carve - 실시간 계산을 통해 nav mesh를 생성
 3. carve only stationary - 멈추고 carve 수행   
    
 <hr>
+
+0610   
+   
+coroutine   
+   
+update 에서 일시적인 동작, 동작 처리를 기다리는 기능 등등의 구현이 힘듬   
+-> update의 경우 무슨일이 있어도 계속해서 돌아가기 때문에   
+   
+coroutine   
+ex) 캐릭터 공격 딜레이 기능   
+   
+기존의 pricone 연습에서 구현했던 시간에 따른 공격 간격 조절을 코루틴을 이용하여 구현   
+   
+yield return -> 코루틴에서 동작하는 제어권을 다시 유니티에게 전달   
+null = 1 frame   
+WaitForSeconds(2f) = timescale 영향을 받는 2f   
+WaitForSecondsRealtime(2f) = timescale 영향을 받지 않는 2f   
+WaitForFixedUpdate() = fixedUpdate 과정을 끝내고 제어권 전달   
+WaitForEndOfFrame() = 1 frame에 작업을 모두 끝낸 후 제어권 전달   
+   
+코루틴 실행시 StartCoroutine(f(x));   
+   
+<코루틴 주의사항>   
+   
+1. start 이후 코루틴 사용   
+2. 게임 오브젝트가 비활성화시 사용 불가능   
+3. 코루틴 안에서 무한 루프 사용시 반복분 안에서 적절하게 제어권 전달   
+   
+<내일할일>   
+코루틴 중단 / 코루틴 매개변수 / yield break   
+   
+<hr>
