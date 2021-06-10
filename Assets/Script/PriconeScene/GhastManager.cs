@@ -18,7 +18,7 @@ public class GhastManager : MonoBehaviour
     private float dmg;
 
     private float atkSpeed;
-    private float currentTime;
+    private bool canAtk;
 
     private GameObject enemyObj;
     //private string allyName;
@@ -38,7 +38,7 @@ public class GhastManager : MonoBehaviour
         dmg = 3f;
 
         atkSpeed = 5f;
-        currentTime = atkSpeed;
+        canAtk = false;
 
         //allyName = this.gameObject.name;
         //enemyName = "";
@@ -89,23 +89,30 @@ public class GhastManager : MonoBehaviour
 
         if (isAtk && !isMove)       // 공격 가능 + 움직이지 않는 상태 (근접한 상태)
         {
-            currentTime += Time.deltaTime * 1f;
-
-            if (currentTime >= atkSpeed)
+            if (!canAtk)
             {
-                currentTime = 0f;
+                canAtk = true;
 
                 if (enemyObj.name == "Bat")
                 {
                     enemyObj.GetComponent<BatManager>().getDmg(dmg);
                     animator.SetBool("Attack", true);
-
-                    Debug.Log("Ghast" + ghastHP);
                 }
 
-                //CM.getDmgInfo(this.gameObject, enemyObj, dmg, allyName, enemyName);
+                StartCoroutine(CountAttackDelay());
+                Debug.Log("Attack");
+            }
+            else
+            {
+                Debug.Log("Delay");
             }
         }
         
+    }
+
+    IEnumerator CountAttackDelay()
+    {
+        yield return new WaitForSeconds(atkSpeed);
+        canAtk = false;
     }
 }

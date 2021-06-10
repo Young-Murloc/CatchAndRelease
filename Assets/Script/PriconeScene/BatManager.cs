@@ -18,7 +18,7 @@ public class BatManager : MonoBehaviour
     private float dmg;
 
     private float atkSpeed;
-    private float currentTime;
+    private bool canAtk;
 
     private GameObject enemyObj;
     private string allyName;
@@ -39,7 +39,7 @@ public class BatManager : MonoBehaviour
         dmg = 5f;
 
         atkSpeed = 3f;
-        currentTime = atkSpeed;
+        canAtk = false;
 
         //allyName = this.gameObject.name;
         //enemyName = "";
@@ -77,11 +77,9 @@ public class BatManager : MonoBehaviour
         }
         else
         {
-            currentTime += Time.deltaTime * 1f;
-
-            if(currentTime >= atkSpeed)
+            if(!canAtk)
             {
-                currentTime = 0f;
+                canAtk = true;
 
                 if (enemyObj.name == "Ghast")
                 {
@@ -92,11 +90,21 @@ public class BatManager : MonoBehaviour
 
                     SLM.getPosAndDmg(this.transform.localPosition, dmg);
 
-                    Debug.Log("Bat" + batHP);
+                    //Debug.Log("Attack");
                 }
 
-                //CM.getDmgInfo(this.gameObject, enemyObj, dmg, allyName, enemyName);
+                StartCoroutine(CountAttackDelay());
+            }
+            else
+            {
+                //Debug.Log("Delay");
             }
         }
+    }
+
+    IEnumerator CountAttackDelay()
+    {
+        yield return new WaitForSeconds(atkSpeed);
+        canAtk = false;
     }
 }
